@@ -24,13 +24,13 @@ public class GAutoStart extends BukkitRunnable {
 		this.main = main;
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public void run() {
 		if (main.Chasseur == null)
 			main.Chasseur = main.getPlayers().get((int)(Math.random() * main.getPlayers().size())).getName();
 		for (Player pl : main.getPlayers()) {
 			pl.setLevel(timer);
+			pl.addPotionEffect(PotionEffectType.BLINDNESS.createEffect(timer, 1));
 			main.pmm.registerEvents(main.movements, main);
 		}
 		if (timer == 10 || timer == 5 || timer == 4 || timer == 3 || timer == 2 || timer == 1)
@@ -39,7 +39,7 @@ public class GAutoStart extends BukkitRunnable {
 			for (Player pl : main.frozen) {
 				main.frozen.remove(pl);
 				if (pl.getName() == main.Chasseur) {
-					pl.sendTitle("Hunter", "The game has started.");
+					pl.sendTitle("Hunter", "The game has started.", 10, 80, 20);
 					ItemStack item = new ItemStack(Material.CROSSBOW, 1);
 					ItemMeta meta = item.getItemMeta();
 					meta.setDisplayName("Supra Deaths");
@@ -52,9 +52,9 @@ public class GAutoStart extends BukkitRunnable {
 					item.setItemMeta(meta);
 					pl.getInventory().setItemInMainHand(item);
 				} else {
-					pl.sendTitle("Rabbits", "Try to live.");
-					pl.addPotionEffect(PotionEffectType.SPEED.createEffect(99999, 4));
-					pl.addPotionEffect(PotionEffectType.JUMP.createEffect(99999, 3));
+					pl.sendTitle("Rabbits", "Try to live.", 10, 80, 20);
+					pl.addPotionEffect(PotionEffectType.SPEED.createEffect(99999, 3));
+					pl.addPotionEffect(PotionEffectType.JUMP.createEffect(99999, 8));
 				}
 			}
 			main.setState(GStates.CHASE);

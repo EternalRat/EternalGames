@@ -14,6 +14,8 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import fr.games.eternalgames.EternalGames;
 import fr.games.eternalgames.GStates;
+import me.libraryaddict.disguise.disguisetypes.DisguiseType;
+import me.libraryaddict.disguise.disguisetypes.MobDisguise;
 
 public class GAutoStart extends BukkitRunnable {
 	
@@ -52,6 +54,9 @@ public class GAutoStart extends BukkitRunnable {
 					item.setItemMeta(meta);
 					pl.getInventory().setItemInMainHand(item);
 				} else {
+					MobDisguise mobDisguise = new MobDisguise(DisguiseType.RABBIT);
+					mobDisguise.setEntity(pl);
+					mobDisguise.startDisguise();
 					pl.sendTitle("Rabbits", "Try to live.", 10, 80, 20);
 					pl.addPotionEffect(PotionEffectType.SPEED.createEffect(99999, 3));
 					pl.addPotionEffect(PotionEffectType.JUMP.createEffect(99999, 8));

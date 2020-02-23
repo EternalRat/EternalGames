@@ -7,7 +7,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerQuitEvent;
 
 import fr.games.eternalgames.EternalGames;
 import fr.games.eternalgames.GStates;
@@ -55,10 +54,5 @@ public class ListenerJoin implements Listener {
 			start.runTaskTimer(main, 0, 20);
 			main.setState(GStates.PREPARATION);
 		}
-	}
-	
-	@EventHandler
-	public void onQuit(PlayerQuitEvent e) {
-		
 	}
 }

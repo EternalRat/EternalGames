@@ -32,7 +32,6 @@ public class GFinalChase extends BukkitRunnable {
 		PluginManager pm = Bukkit.getServer().getPluginManager();
 		pm.registerEvents(Kill, main);
 		if (main.getPlayers().size() == 1 && main.isState(GStates.FINAL_CHASE)) {
-			//TP MANQUANT
 			for (Player pl : Bukkit.getServer().getOnlinePlayers()) {
 				pl.sendTitle("Hunter have won !", "", 10, 80, 20);
 			}

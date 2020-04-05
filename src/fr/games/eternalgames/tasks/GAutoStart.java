@@ -59,7 +59,7 @@ public class GAutoStart extends BukkitRunnable {
 					mobDisguise.startDisguise();
 					pl.sendTitle("Rabbits", "Try to live.", 10, 80, 20);
 					pl.addPotionEffect(PotionEffectType.SPEED.createEffect(99999, 3));
-					pl.addPotionEffect(PotionEffectType.JUMP.createEffect(99999, 8));
+					pl.addPotionEffect(PotionEffectType.JUMP.createEffect(99999, 3));
 				}
 			}
 			main.setState(GStates.CHASE);

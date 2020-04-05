@@ -13,7 +13,7 @@ import fr.games.eternalgames.listener.ListenerDeath;
 
 public class GChase extends BukkitRunnable {
 
-	private int timer = 600;
+	private int timer = 300;
 	private EternalGames main;
 	
 	public GChase(EternalGames main) {
@@ -24,7 +24,7 @@ public class GChase extends BukkitRunnable {
 	public void run() {
 		if (timer == 0) {
 			for (Player pl : main.getPlayers()) {
-				if (pl.getName().toString() != main.Chasseur) {
+				if (pl.getName() != main.Chasseur) {
 					pl.addPotionEffect(PotionEffectType.BLINDNESS.createEffect(99999, 1));
 				}
 			}
